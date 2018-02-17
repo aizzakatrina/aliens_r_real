@@ -6,15 +6,22 @@
     <title>
         Aliens R Real
     </title>
-    <link rel="stylesheet" href="stylesheet.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        #ufo-sighting {
+            border: 1px solid black;
+            width: 100%;
+            text-align: center;
+        }
+
+    </style>
 </head>
 
 <body>
     <div class="container">
         <div class="jumbotron center">
-            <h1>Aliens R Real</h1>
-                <p>...</p>                  
+            <h1>Aliens R Real</h1>       
+            <p>UFO Sightings</p>       
         </div>
     </div>
 
@@ -24,27 +31,14 @@
                 
                 <p>
                 <form action="/search">
-                    Search: <input type="text" name="search"> <input type="submit" value="Submit">
+                    Search: <input type="text" name="search"> <button id="search">Submit</button>
                 </form>
                 </p>
+                <div>
+                    <table id="ufo-sighting"></table>
+                    <script src="./index.js" type="text/javascript"></script>
+                </div>
 
-                <table class="border">
-                    <thead>
-                        <tr>
-                            <th colspan="6">
-                                <center><h3>UFO Sightings</h3></center>
-                            </th>
-                        </tr>
-                        <tr>
-                            <th>date/time</th>
-                            <th>city</th>
-                            <th>state</th>
-                            <th>country</th>
-                            <th>shape</th>
-                            <th>comment</th>
-                        </tr>
-                    </thead>
-                </table>
 
             </div>
         </div>
