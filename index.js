@@ -1,35 +1,18 @@
-// Getting a reference to the input field and button
-var dateTimeInput = document.querySelector("#dateTime");
+// Get a reference to the <tbody> element, input field, and button
+var tableBody = document.querySelector("tbody");
+var timeInput = document.querySelector("#time");
 var searchButton = document.querySelector("#search");
 
 // Add an event listener to the searchButton, call handleSearchButtonClick when clicked
-// searchButton.addEventListener("click", handleSearchButtonClick);
+searchButton.addEventListener("click", handleSearchButtonClick);
 
 // Set filterTimes to dataSet initially
 var filterTimes = dataSet;
 
  // appending a table 
 function renderTable() {
-    // header text
-    var headers = ["Date/Time", "City", "State", "Country", "Shape", "Duration (Minutes)", "Comments"]
-
-    // Get a reference to the tr element with id 'header'
-    var $header = document.querySelector("#header");
-
-    for (var h=0; h < headers.length; h++) {
-      // Insert a new cell (<td>) at the first position of the <tr> element:
-      var th = document.createElement("th");
+  tableBody.innerHTML = "";
   
-      // Add text in the new cell:
-      th.innerHTML = headers[h];
-
-      // Use 'appendChild' to put the heading text into the cell
-      $header.appendChild(th);  
-    };  
-
-    // Create an empty <tbody> element and add it to the table:
-    var tableBody = document.querySelector("tbody");
-
     for (var i=0; i < filterTimes.length; i++) {
       // Get get the current UFO sighting object and its fields
       var sighting = filterTimes[i];
@@ -46,5 +29,20 @@ function renderTable() {
       }
     }
 };
+
+function handleSearchButtonClick() {
+  // Format the user's search by removing leading and trailing whitespace
+  var filterDate = timeInput.value.trim();
+
+  // Set filterTimes to an array of all datetimes whose "time" matches the filter
+  filterTimes = dataSet.filter(function(sighting) {
+    var dateTime = sighting.datetime;
+
+    // If true, add the address to the filterTimes, otherwise don't add it to filterTimes
+    return dateTime === filterDate;
+  });
+
+  renderTable();
+}
 
 renderTable();

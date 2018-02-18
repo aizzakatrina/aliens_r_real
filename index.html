@@ -9,13 +9,10 @@
     </title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <style>
-        #ufo-sighting {
+        table, th, td {
             border: 1px solid black;
             text-align: center;
-        }
-        th, td {
-            border: 1px solid black;
-            text-align: center;
+            width: 100%;
         }
 
         .fit {
@@ -31,34 +28,40 @@
 
 <body>
     <div class="container fit">
-        <div class="jumbotron centered">
-            <h1>Aliens R Real</h1>       
-            <p>UFO Sightings</p>     
+        <div class="row">
+            <div class="jumbotron centered">
+                <h1>Aliens R Real</h1>       
+                <p>UFO Sightings</p>     
+            </div>
         </div>
 
         <div class="row">
-            <div class="col-md-12">
-                
-                <p>
-                <form action="/search">
-                    <input type="text" name="dateTime" placeholder="Date/Time"> <a id="search" class="btn btn-default">Search</a>
-                </form>
-                </p>
-                <div>
-                    <table id="ufo-sighting">
-                        <thead>
-                            <tr id="header"></tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                    <script src="data.js" type="text/javascript"></script>
-                    <script src="index.js" type="text/javascript"></script>
-                </div>
-
-
+            <div class="col-md-4">                
+                    <input type="text" id="time" placeholder="Date/Time"> <a id="search" class="btn btn-default">Search</a>
+            </div>
+        </div>  
+        
+        <div class="row">
+            <div class="col-md-12"> 
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date/Time</th>
+                            <th>City</th>  
+                            <th>State</th>
+                            <th>Country</th>
+                            <th>Shape</th>
+                            <th>Duration</th>
+                            <th>Comments</th>  
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
             </div>
         </div>
     </div>
+    <script src="data.js" type="text/javascript"></script>
+    <script src="index.js" type="text/javascript"></script>
 </body>
 
 </html>
