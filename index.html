@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
         Aliens R Real
     </title>
@@ -10,35 +11,48 @@
     <style>
         #ufo-sighting {
             border: 1px solid black;
-            width: 100%;
+            text-align: center;
+        }
+        th, td {
+            border: 1px solid black;
             text-align: center;
         }
 
+        .fit {
+            display: table;
+            padding: 2em;
+        }
+
+        .centered {
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="jumbotron">
-            <center>
+    <div class="container fit">
+        <div class="jumbotron centered">
             <h1>Aliens R Real</h1>       
-            <p>UFO Sightings</p>    
-            </center>   
+            <p>UFO Sightings</p>     
         </div>
-    </div>
 
-    <div class="container">
         <div class="row">
             <div class="col-md-12">
                 
                 <p>
                 <form action="/search">
-                    Search: <input type="text" name="search"> <button id="search">Submit</button>
+                    <input type="text" name="dateTime" placeholder="Date/Time"> <a id="search" class="btn btn-default">Search</a>
                 </form>
                 </p>
                 <div>
-                    <table id="ufo-sighting"></table>
-                    <script src="./index.js" type="text/javascript"></script>
+                    <table id="ufo-sighting">
+                        <thead>
+                            <tr id="header"></tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <script src="data.js" type="text/javascript"></script>
+                    <script src="index.js" type="text/javascript"></script>
                 </div>
 
 

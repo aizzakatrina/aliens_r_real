@@ -1,30 +1,50 @@
-// Getting a reference to the button on the page with the id property set to `search`
+// Getting a reference to the input field and button
+var dateTimeInput = document.querySelector("#dateTime");
 var searchButton = document.querySelector("#search");
+
+// Add an event listener to the searchButton, call handleSearchButtonClick when clicked
+// searchButton.addEventListener("click", handleSearchButtonClick);
+
+// Set filterTimes to dataSet initially
+var filterTimes = dataSet;
 
  // appending a table 
 function renderTable() {
     // header text
-    var headers = ["Date/Time", "City", "State", "Country", "Shape", "Comment"]
-  
-    // Getting a reference to the to div with id property "ufo-sighting"
-    var ufoSighting = document.querySelector("#ufo-sighting");
-  
-    // Create an empty <thead> element and add it to the table:
-    var tableHeader = document.createElement("thead");
-  
-    // Create an empty <tr> element and add it to the first position of <thead>:
-    var row = document.createElement("tr");    
-  
-    for (var h=0; h<headers.length; h++) {
-      // Insert a new cell (<td>) at the first position of the "new" <tr> element:
-      var td = document.createElement("td");
-  
-      // Add some bold text in the new cell:
-      td.innerHTML = headers[h];
+    var headers = ["Date/Time", "City", "State", "Country", "Shape", "Duration (Minutes)", "Comments"]
 
-      // Use 'appendChild' to put the heading and paragraph into the `app` container
-      ufoSighting.appendChild(td);  
+    // Get a reference to the tr element with id 'header'
+    var $header = document.querySelector("#header");
+
+    for (var h=0; h < headers.length; h++) {
+      // Insert a new cell (<td>) at the first position of the <tr> element:
+      var th = document.createElement("th");
+  
+      // Add text in the new cell:
+      th.innerHTML = headers[h];
+
+      // Use 'appendChild' to put the heading text into the cell
+      $header.appendChild(th);  
     };  
+
+    // Create an empty <tbody> element and add it to the table:
+    var tableBody = document.querySelector("tbody");
+
+    for (var i=0; i < filterTimes.length; i++) {
+      // Get get the current UFO sighting object and its fields
+      var sighting = filterTimes[i];
+      var fields = Object.keys(sighting);
+
+       // Create a new row in the tbody
+      var $row = tableBody.insertRow(i);
+      for (var j = 0; j < fields.length; j++) {
+        // For every field in the address object, create a new cell 
+        //and  set its inner text to be the current value at the current sighting's field
+        var field = fields[j];
+        var $cell = $row.insertCell(j);
+        $cell.innerText = sighting[field];
+      }
+    }
 };
 
 renderTable();
