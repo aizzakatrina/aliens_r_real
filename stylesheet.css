@@ -1,0 +1,14 @@
+.fit {
+    display: table;
+    padding: 2em;
+}
+
+.centered {
+    text-align: center;
+}
+
+.form-control {
+    display: inline-block;
+    width: 250px;
+    margin-top: 50px;
+}
